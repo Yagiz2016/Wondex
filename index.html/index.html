@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wondex</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: url("https://images.unsplash.com/photo-1518770660439-4636190af475") no-repeat center center fixed;
+    background-size: cover;
+    color: white;
+}
+
+/* gizli inputlar */
+input[type="radio"], input[type="checkbox"] {
+    display: none;
+}
+
+/* TOPBAR */
+.topbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background: #020617;
+    padding: 15px;
+    z-index: 1000;
+}
+
+.menu-btn {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* MENU */
+.menu {
+    position: fixed;
+    top: 0;
+    right: -260px;
+    width: 260px;
+    height: 100%;
+    background: #1e293b;
+    padding-top: 70px;
+    transition: 0.4s ease;
+    z-index: 2000;
+}
+
+.menu label {
+    display: block;
+    padding: 15px;
+    cursor: pointer;
+    border-bottom: 1px solid #334155;
+    transition: 0.2s;
+}
+
+.menu label:hover {
+    background: #334155;
+    padding-left: 20px;
+}
+
+#menu:checked ~ .menu {
+    right: 0;
+}
+
+/* CONTENT */
+.content {
+    margin-top: 80px;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+
+/* BOX */
+.box {
+    width: 800px;
+    min-height: 500px;
+    border-radius: 12px;
+    padding: 25px;
+    background: rgba(30,41,59,0.85);
+}
+
+/* SAYFALAR */
+.page {
+    display: none;
+    opacity: 0;
+    transform: translateY(20px);
+}
+
+#home:checked ~ .content .home,
+#about:checked ~ .content .about,
+#services:checked ~ .content .services,
+#contact:checked ~ .content .contact,
+#staff:checked ~ .content .staff,
+#sss:checked ~ .content .sss,
+#arduino:checked ~ .content .arduino,
+#apply:checked ~ .content .apply,
+#ataturk:checked ~ .content .ataturk {
+    display: block;
+    animation: fadeSlide 0.4s ease forwards;
+}
+
+@keyframes fadeSlide {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* FORM */
+.form input,
+.form select,
+.form textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 8px 0;
+    border-radius: 6px;
+    box-sizing: border-box;
+    background: #0f172a;
+    color: white;
+    border: 1px solid #334155;
+}
+
+.form input::placeholder,
+.form textarea::placeholder {
+    color: #94a3b8;
+}
+
+.form textarea {
+    height: 200px;
+}
+
+/* BUTON */
+.btn {
+    margin-top: 10px;
+    padding: 10px;
+    background: #3b82f6;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn:hover {
+    background: #2563eb;
+    box-shadow: 0 0 12px #3b82f6;
+    transform: translateY(-2px);
+}
+
+/* SAYFA FOOTER */
+.footer {
+    margin-top: 40px;
+    padding-top: 15px;
+    border-top: 1px solid #334155;
+    color: #94a3b8;
+    font-size: 14px;
+}
+</style>
+</head>
+
+<body>
+
+<!-- SAYFA SEÇİCİLER -->
+<input type="radio" name="page" id="home" checked>
+<input type="radio" name="page" id="about">
+<input type="radio" name="page" id="services">
+<input type="radio" name="page" id="contact">
+<input type="radio" name="page" id="staff">
+<input type="radio" name="page" id="sss">
+<input type="radio" name="page" id="arduino">
+<input type="radio" name="page" id="apply">
+<input type="radio" name="page" id="ataturk">
+
+<!-- MENU -->
+<input type="checkbox" id="menu">
+
+<div class="topbar">
+    <label for="menu" class="menu-btn">☰</label>
+</div>
+
+<div class="menu">
+    <label for="home">Ana Sayfa</label>
+    <label for="about">Hakkımızda</label>
+    <label for="services">Hizmetlerimiz</label>
+    <label for="contact">İletişim</label>
+    <label for="staff">Yetkili Kadrosu</label>
+    <label for="sss">SSS</label>
+    <label for="arduino">Arduino</label>
+    <label for="apply">Başvuru</label>
+    <label for="ataturk">Atatürk</label>
+</div>
+
+<div class="content">
+<div class="box">
+
+<!-- ANA SAYFA -->
+<div class="page home">
+<h2>Ana Sayfa</h2>
+<p>Wondex’e hoş geldin</p>
+
+<div class="footer">
+<p></p>
+</div>
+</div>
+
+<!-- HAKKIMIZDA -->
+<div class="page about">
+<h2>Hakkımızda</h2>
+<p>Wondex teknolojiye önem veren ve süreki gelişmekte olan bir şirkettir.</p>
+
+<div class="footer">
+<p>Wondex 2025 de kurulmuş ve 2026 da büyümüştür</p>
+<p>İlk çalışmamız C# ve C++ üzerine olmuştur</p>
+<p>Wondex aktif olarak C# / C++ / HTML / CSS üzerinden çalışmalarına devam etmektedir</p>
+</div>
+</div>
+
+<!-- HİZMETLER -->
+<div class="page services">
+<h2>Hizmetlerimiz</h2>
+
+<div class="footer">
+<p>Arduino projeler</p>
+<p>Arduino Satış</p>
+<p>Robotik Yazılımlar</p>
+<p>Python / C++ / C# / HTML / CSS / JavaScript</p>
+</div>
+</div>
+
+<!-- İLETİŞİM -->
+<div class="page contact">
+<h2>İletişim</h2>
+<p>info@wondex.com</p>
+<p>+(90) 0501 004 23 94</p>
+
+<div class="footer">
+<p>WhatsApp üzerinden bize ulaşırsanız daha iyi olur</p>
+</div>
+</div>
+
+<!-- KADRO -->
+<div class="page staff">
+<h2>Yetkili Kadrosu</h2>
+
+<div class="footer">
+<p>Yönetici - Yağız Yıldızhan</p>
+<p>Genel Admin -</p>
+<p>Admin -</p>
+<p>Admin -</p>
+<p>Admin -</p>
+<p>Yardımcı Ekip Başkanı -</p>
+<p>Yardımcı Ekip Başkan Y. -</p>
+<p>Teknik Ekip Başkanı -</p>
+<p>Teknik Ekip Başkan Y. -</p>
+</div>
+</div>
+
+<!-- SSS -->
+<div class="page sss">
+<h2>SSS</h2>
+
+<div class="footer">
+<p>Soru ekleme alanı</p>
+</div>
+</div>
+
+<!-- ARDUINO -->
+<div class="page arduino">
+<h2>Arduino</h2>
+<p>Arduino Bilgilendirme</p>
+
+<div class="footer">
+<h3>Arduino UNO Serisi</h3>
+<p>Arduino UNO R1 (ilk sürüm)</p>
+<p>Arduino UNO R2</p>
+<p>Arduino UNO R3</p>
+<p>Arduino UNO R4 Minima</p>
+<p>Arduino UNO R4 WiFi</p>
+<h3>Arduino Nano Serisi</h3>
+<p>Nano Klasilk AVR </p>
+<P>Nano Every</P>
+<h3>Arduino Mega Serisi</h3>
+<p>Mega 2560</p>
+<p>Mega ADK</p>
+<h3>Arduino Leonardo Serisi</h3>
+<p>Leonardo</p>
+<p>Micro</p>
+<h3>Arduino DUE Serisi</h3>
+<p>Due (tek model)</p>
+<h3>Arduino MKR Serisi</h3>
+<h3>Temel MKR Kartları</h3>
+<p>MKR Zero (ses / SD kart projeleri)</p>
+<p>MKR WiFi 1010 (WiFi + BLE)</p>
+<p>MKR GSM 1400 (SIM kart ile internet)</p>
+<p>MKR WAN 1310 (LoRa uzun menzil)</p>
+<p>MKR NB 1500 (NB-IoT hücresel ağ)</p>
+<h3>Endüstriyel MKR</h3>
+<p>MKR FOX 1200 (Sigfox)</p>
+<p>MKR Vidor 4000 (FPGA + WiFi + BLE + HDMI)</p>
+<h3>Arduino Portenta Serisi</h3>
+<p>Portenta H7</p>
+<p>Portenta X8</p>
+<p>Portenta C33</p>
+<h3>Arduino Zero Serisi / MO Serisi</h3>
+<p>Arduino Zero</p>
+<p>Arduino MO</p>
+<p>MO Pro</p>
+<h3>Arduino YUN Serisi</h3>
+<p>Arduino Yún</p>
+<h3>Arduino serileri arasında en çok tercih edilen UNO R3 olmuştur</h3>
+<h3>Ve UNO R3 ile basit projeler yapabilir ve kendinizi Arduino projelerinde güçlü bir temel atabilirsiniz</h3>
+</div>
+</div>
+
+<!-- BAŞVURU -->
+<div class="page apply">
+<h2>Başvuru</h2>
+
+<div class="form">
+<input type="text" placeholder="İsim">
+<input type="text" placeholder="Soyisim">
+<input type="email" placeholder="E-posta">
+<input type="text" placeholder="Telefon">
+
+<select>
+<option>Rütbe</option>
+<option>Genel Admin</option>
+<option>Admin</option>
+<option>Yardımcı Ekip</option>
+<option>Developer</option>
+<option>Web Developer</option>
+<option>Web Designer</option>
+<option>Teknik Ekip</option>
+<option>Designer</option>
+<option>Staj</option>
+<option>Asistan</option>
+</select>
+
+<textarea placeholder="Neden Wondex?"></textarea>
+<button class="btn">Gönder</button>
+</div>
+
+<div class="footer">
+<h2>-Başvuru şartları-</h2>
+<h3>Designer</h3>
+<p>Lisede veya Ünisersite de Grafik tasarım okumuş olmak</p>
+<p>En az lise mezunu olmak</p>
+<p>Tinkercad kullanmayı bilmek</p>
+<p>Tasarım ve çizim konusunda yaratıcı ve üretken olmak</p>
+<h3>Developer</h3>
+<p>En az lise mezunu olmak</p>
+<p>Lisede Bilişim Teknolojileri okumuş olmak veya Üniversite de Bilsiayar üzerine okumuş olmak</p>
+<p>Bilgisayar donanımlarını bilmek</p>
+<p>C / C++ / Java / JavaScript / Python / C# / HTML / CSS dillerini bilmek ve kullanabilmek</p>
+<h3>Web Developer</h3>
+<p>HTML / CSS / JavaScript / Java dillerini bilmek ve kullanabilmek</p>
+<p>En az lise mezunu olmak</p>
+<p>Takım Çalışması</p>
+<h3>Web Designer</h3>
+<p>En az lise mezunu olmak</p>
+<p>Özgün / yaratıcı ve üretken olmak</p>
+<p>Takım Çalışması</p>
+<h3>Asistan</h3>
+<p>İngilizce en az B2 Seviyesinde bilmek</p>
+<p>İngilizceyi Akıcı ve güzel bir şekilde konuşabilmek</p>
+<p>Türkçeyi akıcı ve güzel bir şekilde konuşabilmek</p>
+<h3>Staj</h3>
+<p>Lise sonda veya 11. sınıf(erken staj) düzeyinde olmak ve staj yapmak</p>
+<h3>Teknik Ekip</h3>
+<p>Teknik işlerden sorumlu olmak</p>
+<p>Verilen görevleri yapabilmek</p>
+<p>En az lise mzunu olmak (Bilişim)</p>
+<h3>Yardımcı Ekip</h3>
+<p>Teknik Ekip ile birlikte çalışmak</p>
+<p>Verilen görevleri yapabilmek</p>
+<p>En az lise mezunu olmak (Bilişim)</p>
+<h3>Admin</h3>
+<p>Takım çalışmalarında disiplinli olmak ve takım çalışmalarına uyum sağlayabilmek</p>
+<p>Takımı yönetebilmek</p>
+<p>En az lise mezunu olmak</p>
+<h3>Genel Admin</h3>
+<p>Takım çalışmalarında disiplinli olmak ve takım çalışmalarına uyum sağlayabilmek</p>
+<p>Takımı yönetebilmek</p>
+<p>İdari işlemleri yönetebilmek ve idare edebilmek</p>
+<p>Ast birimlerin disiplininden sorumlu olmak ve sorumlu tutmak</p>
+<p>En az Ünisersite mezunu olmak (MYO dahil)</p>
+<p></p>
+</div>
+</div>
+
+<!-- ATATÜRK -->
+<div class="page ataturk">
+<h2>Mustafa Kemal Atatürk</h2>
+<p>Türkiye Cumhuriyeti'nin Kurucusu ve İlk Cumhurbaşkanı'dır</p>
+<p>“Egemenlik, kayıtsız şartsız milletindir.”</p>
+
+<div class="footer">
+<p>Mustafa Kemal Atatürk – Gençliğe Hitabe
+
+Ey Türk gençliği!
+
+Birinci vazifen, Türk istiklâlini, Türk Cumhuriyetini, ilelebet, muhafaza ve müdafaa etmektir.
+Mevcudiyetinin ve istikbalinin yegâne temeli budur. Bu temel, senin en kıymetli hazinendir. İstikbalde dahi seni bu hazineden mahrum etmek isteyecek, dahilî ve haricî bedhahların olacaktır.
+Bir gün, istiklâl ve cumhuriyeti müdafaa mecburiyetine düşersen, vazifeye atılmak için, içinde bulunacağın vaziyetin imkân ve şeraitini düşünmeyeceksin! Bu imkân ve şerait, çok namüsait bir mahiyette tezahür edebilir.
+İstiklâl ve cumhuriyetine kastedecek düşmanlar, bütün dünyada emsali görülmemiş bir galibiyetin mümessili olabilirler. Cebren ve hile ile aziz vatanın, bütün kaleleri zaptedilmiş, bütün tersanelerine girilmiş, bütün orduları dağıtılmış ve memleketin her köşesi bilfiil işgal edilmiş olabilir.
+Bütün bu şeraitten daha elim ve daha vahim olmak üzere, memleketin dahilinde, iktidara sahip olanlar gaflet ve dalâlet ve hatta hıyanet içinde bulunabilirler.
+Hatta bu iktidar sahipleri şahsî menfaatlerini, müstevlilerin siyasî emelleriyle tevhit edebilirler.
+Millet, fakr ü zaruret içinde harap ve bitap düşmüş olabilir.
+Ey Türk istikbalinin evladı!
+İşte, bu ahval ve şerait içinde dahi vazifen; Türk istiklâl ve cumhuriyetini kurtarmaktır!
+Muhtaç olduğun kudret, damarlarındaki asil kanda mevcuttur!</p>
+</div>
+</div>
+
+</div>
+</div>
+
+</body>
+</html>
